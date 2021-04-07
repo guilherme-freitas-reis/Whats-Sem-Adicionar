@@ -30,8 +30,8 @@ export default function Home() {
         </section>
         <form onSubmit={onSubmit} method="POST" className={styles.section}>
           <div className={styles.inputContainer}>
-            <Input maxlength={2} style={{width: 75}} type="tel" placeholder="DDD" />
-            <Input maxlength={9} style={{flex: 1}} type="tel" placeholder="Número de telefone" />
+            <Input maxLength={2} style={{width: 75}} type="tel" placeholder="DDD" />
+            <Input maxLength={9} style={{flex: 1}} type="tel" placeholder="Número de telefone" />
           </div>
           <Primary>Iniciar Conversa</Primary>
         </form>

@@ -15,6 +15,9 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Whats Sem Adicionar</title>
+      </Head>
       <main className={styles.main}>
         <section className={styles.section}>
           <h1 className={styles.title}>

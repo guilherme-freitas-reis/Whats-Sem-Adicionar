@@ -1,0 +1,17 @@
+.primary {
+    background: #25cb63;
+    border: none;
+    height: 50px;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px 0px #25cb63;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.primary:hover {
+    opacity: .8;
+}

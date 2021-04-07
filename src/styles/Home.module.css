@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.title {
+  color: #333333;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.text {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgba(0, 0, 0, .6);
+}
+
+.inputContainer {
+  display: flex;
+}
+
+.inputContainer > input:first-child {
+  margin-right: 10px;
+}
+
+@media(max-width: 500px) {
+  .main {
+    max-width: unset;
+    width: 90%;
+  }
+}

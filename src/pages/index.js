@@ -21,7 +21,7 @@ export default function Home() {
       <main className={styles.main}>
         <section className={styles.section}>
           <h1 className={styles.title}>
-            Inicie conversar no whatsapp sem adicionar
+            Inicie conversas no whatsapp sem adicionar
           </h1>
           <p className={styles.text}>
             Insira o número que deseja conversar abaixo,{" "}

@@ -32,18 +32,10 @@
   margin-top: 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: rgba(0, 0, 0, .6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.inputContainer {
-  display: flex;
-}
-
-.inputContainer > input:first-child {
-  margin-right: 10px;
-}
-
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .main {
     max-width: unset;
     width: 90%;

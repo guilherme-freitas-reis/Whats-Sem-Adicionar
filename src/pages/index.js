@@ -1,16 +1,24 @@
+import { Button } from "@material-ui/core";
 import Head from "next/head";
-import { Link, Primary } from "../components/Button/button";
-import Input from "../components/Input/input";
+import { useEffect, useState } from "react";
+import PhoneInput from "react-phone-number-input";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [value, setValue] = useState();
+
+  const [isPermitedSubmit, setIsPermitedSubmit] = useState(false);
+
+  useEffect(() => {
+    setIsPermitedSubmit(value);
+  }, [value]);
 
   function onSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const url = `https://api.whatsapp.com/send?phone=+55${event.target[0].value}${event.target[1].value}`
+    const url = `https://api.whatsapp.com/send?phone=${value}`;
 
-    window.open(url, '_blank').focus();
+    window.open(url, "_blank").focus();
   }
 
   return (
@@ -20,6 +28,13 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <section className={styles.section}>
+          <img
+            src="/favicon.png"
+            alt="Whats sem adicionar"
+            width={64}
+            height={64}
+            style={{ margin: "0 auto 20px" }}
+          />
           <h1 className={styles.title}>
             Inicie conversas no whatsapp sem adicionar
           </h1>
@@ -29,11 +44,23 @@ export default function Home() {
           </p>
         </section>
         <form onSubmit={onSubmit} method="POST" className={styles.section}>
-          <div className={styles.inputContainer}>
-            <Input maxLength={2} style={{width: 75}} type="tel" placeholder="DDD" />
-            <Input maxLength={9} style={{flex: 1}} type="tel" placeholder="Número de telefone" />
-          </div>
-          <Primary>Iniciar Conversa</Primary>
+          <PhoneInput
+            id="input-phone"
+            defaultCountry="BR"
+            limitMaxLength
+            placeholder="Insira o número de telefone"
+            value={value}
+            onChange={setValue}
+          />
+          <Button
+            type="submit"
+            style={{ marginTop: 20 }}
+            variant="contained"
+            color="primary"
+            disabled={!isPermitedSubmit}
+          >
+            Iniciar Conversa
+          </Button>
         </form>
       </main>
     </div>

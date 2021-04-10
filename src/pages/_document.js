@@ -1,15 +1,43 @@
+import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheets } from "@material-ui/core/styles";
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
+export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
         <Head>
+          <title>Whats Sem Adicionar</title>
+          <meta name="title" content="Whats Sem Adicionar" />
+          <meta
+            name="description"
+            content="Inicie conversas no whatsapp sem adicionar aos contatos."
+          />
+
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:url"
+            content="https://whatssemadicionar.vercel.app/"
+          />
+          <meta property="og:title" content="Whats Sem Adicionar" />
+          <meta
+            property="og:description"
+            content="Inicie conversas no whatsapp sem adicionar aos contatos."
+          />
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta
+            property="twitter:url"
+            content="https://whatssemadicionar.vercel.app/"
+          />
+          <meta property="twitter:title" content="Whats Sem Adicionar" />
+          <meta
+            property="twitter:description"
+            content="Inicie conversas no whatsapp sem adicionar aos contatos."
+          />
+
+          <link rel="shortcut icon" href="/favicon.png" />
+
           <script
             data-ad-client="ca-pub-4785613682714050"
             async
@@ -28,4 +56,22 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets();
+  const originalRenderPage = ctx.renderPage;
+
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+    });
+
+  const initialProps = await Document.getInitialProps(ctx);
+
+  return {
+    ...initialProps,
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
+  };
+};

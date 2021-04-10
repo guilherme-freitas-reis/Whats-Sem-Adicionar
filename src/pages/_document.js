@@ -13,7 +13,6 @@ export default class MyDocument extends Document {
             name="description"
             content="Inicie conversas no whatsapp sem adicionar aos contatos."
           />
-          ''
           <meta property="og:type" content="website" />
           <meta
             property="og:url"

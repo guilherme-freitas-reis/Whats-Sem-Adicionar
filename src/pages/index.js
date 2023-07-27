@@ -16,7 +16,7 @@ export default function Home() {
   function onSubmit(event) {
     event.preventDefault();
 
-    const url = `https://api.whatsapp.com/send?phone=${value}`;
+    const url = `https://api.whatsapp.com/send?phone=${value.replace("+", "")}`;
 
     window.open(url, "_blank").focus();
   }
